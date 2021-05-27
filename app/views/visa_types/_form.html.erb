@@ -1,0 +1,17 @@
+<%= form_with(model: visa_type, local: true) do |form| %>
+  <% if visa_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(visa_type.errors.count, "error") %> prohibited this visa_type from being saved:</h2>
+
+      <ul>
+      <% visa_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
