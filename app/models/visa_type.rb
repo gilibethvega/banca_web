@@ -1,0 +1,2 @@
+class VisaType < ApplicationRecord
+end
