@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Friendly Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friendly_types.each do |friendly_type| %>
+      <tr>
+        <td><%= friendly_type.name %></td>
+        <td><%= friendly_type.image %></td>
+        <td><%= friendly_type.user_id %></td>
+        <td><%= link_to 'Show', friendly_type %></td>
+        <td><%= link_to 'Edit', edit_friendly_type_path(friendly_type) %></td>
+        <td><%= link_to 'Destroy', friendly_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Friendly Type', new_friendly_type_path %>

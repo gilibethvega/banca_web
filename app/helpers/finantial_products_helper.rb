@@ -1,0 +1,2 @@
+module FinantialProductsHelper
+end

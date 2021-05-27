@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Finantial Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Url</th>
+      <th>Visibility</th>
+      <th>Institution type</th>
+      <th>Product type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finantial_products.each do |finantial_product| %>
+      <tr>
+        <td><%= finantial_product.name %></td>
+        <td><%= finantial_product.description %></td>
+        <td><%= finantial_product.image %></td>
+        <td><%= finantial_product.url %></td>
+        <td><%= finantial_product.visibility %></td>
+        <td><%= finantial_product.institution_type_id %></td>
+        <td><%= finantial_product.product_type_id %></td>
+        <td><%= link_to 'Show', finantial_product %></td>
+        <td><%= link_to 'Edit', edit_finantial_product_path(finantial_product) %></td>
+        <td><%= link_to 'Destroy', finantial_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Finantial Product', new_finantial_product_path %>
