@@ -1,6 +1,7 @@
 class FinantialInfosController < ApplicationController
   before_action :set_finantial_info, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, only: %i[ show edit update destroy ]
+  before_action :authorize_admin!
   # GET /finantial_infos or /finantial_infos.json
   def index
     @finantial_infos = FinantialInfo.all
@@ -64,6 +65,6 @@ class FinantialInfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def finantial_info_params
-      params.require(:finantial_info).permit(:salary, :salay_extra, :working_time, :user_id, :visa_type_id, :wroker_type_id)
+      params.require(:finantial_info).permit(:salary, :salay_extra, :working_time, :user_id, :visa_type_id, :worker_type_id)
     end
 end

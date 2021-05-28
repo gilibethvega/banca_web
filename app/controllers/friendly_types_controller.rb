@@ -1,6 +1,7 @@
 class FriendlyTypesController < ApplicationController
   before_action :set_friendly_type, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
+  before_action :authorize_admin!
   # GET /friendly_types or /friendly_types.json
   def index
     @friendly_types = FriendlyType.all

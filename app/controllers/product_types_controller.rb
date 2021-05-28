@@ -1,5 +1,7 @@
 class ProductTypesController < ApplicationController
   before_action :set_product_type, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :authorize_admin!
 
   # GET /product_types or /product_types.json
   def index

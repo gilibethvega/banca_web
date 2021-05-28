@@ -1,6 +1,8 @@
 class WorkerTypesController < ApplicationController
   before_action :set_worker_type, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
+  before_action :authorize_admin!
+  
   # GET /worker_types or /worker_types.json
   def index
     @worker_types = WorkerType.all

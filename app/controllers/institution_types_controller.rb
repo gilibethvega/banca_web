@@ -1,5 +1,7 @@
 class InstitutionTypesController < ApplicationController
   before_action :set_institution_type, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :authorize_admin!
 
   # GET /institution_types or /institution_types.json
   def index
