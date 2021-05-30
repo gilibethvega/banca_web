@@ -5,6 +5,8 @@ class FinantialProductsController < ApplicationController
   # GET /finantial_products or /finantial_products.json
   def index
     @finantial_products = FinantialProduct.all
+    @institution_types = InstitutionType.all
+    @product_types = ProductType.all
   end
 
   # GET /finantial_products/1 or /finantial_products/1.json
@@ -14,6 +16,8 @@ class FinantialProductsController < ApplicationController
   # GET /finantial_products/new
   def new
     @finantial_product = FinantialProduct.new
+    @institution_types = InstitutionType.all
+    @product_types = ProductType.all
   end
 
   # GET /finantial_products/1/edit

@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :salay_extra %>
-    <%= form.text_field :salay_extra %>
+    <%= form.label :salary_extra %>
+    <%= form.text_field :salary_extra %>
   </div>
 
   <div class="field">
@@ -27,18 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :visa_type_id %>
-    <%= form.text_field :visa_type_id %>
+    <%= form.select :visa_type_id, VisaType.all.collect {|type_visa| [type_visa.name, type_visa.id]}, {} ,id: :visa_visa_type_id, include_blank:false %>
   </div>
 
   <div class="field">
     <%= form.label :worker_type_id %>
-    <%= form.text_field :worker_type_id %>
+    <%= form.select :worker_type_id, WorkerType.all.collect {|type_worker| [type_worker.name, type_worker.id]}, {} ,id: :worker_worker_type_id, include_blank:false %>
   </div>
 
   <div class="actions">

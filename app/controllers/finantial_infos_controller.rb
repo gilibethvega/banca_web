@@ -5,6 +5,9 @@ class FinantialInfosController < ApplicationController
   # GET /finantial_infos or /finantial_infos.json
   def index
     @finantial_infos = FinantialInfo.all
+    @visa_types = VisaType.all
+    @worker_types = WorkerType.all
+    @users = User.all
   end
 
   # GET /finantial_infos/1 or /finantial_infos/1.json
@@ -22,7 +25,7 @@ class FinantialInfosController < ApplicationController
 
   # POST /finantial_infos or /finantial_infos.json
   def create
-    @finantial_info = FinantialInfo.new(finantial_info_params)
+    @finantial_info = FinantialInfo.new(finantial_info_params.merge(user: current_user))
 
     respond_to do |format|
       if @finantial_info.save
@@ -65,6 +68,6 @@ class FinantialInfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def finantial_info_params
-      params.require(:finantial_info).permit(:salary, :salay_extra, :working_time, :user_id, :visa_type_id, :worker_type_id)
+      params.require(:finantial_info).permit(:salary, :salary_extra, :working_time, :user_id, :visa_type_id, :worker_type_id)
     end
 end

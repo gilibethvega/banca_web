@@ -36,9 +36,9 @@
     <%= form.text_field :url %>
   </div>
 
-  <div class="field">
+   <div class="field">
     <%= form.label :product_type_id %>
-    <%= form.text_field :product_type_id %>
+    <%= form.select :product_type_id, ProductType.all.collect {|type_post| [type_post.name, type_post.id]}, {} ,id: :post_product_type_id, include_blank:false %>
   </div>
 
   <div class="actions">

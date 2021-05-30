@@ -15,7 +15,7 @@ class FinantialInfosTest < ApplicationSystemTestCase
     click_on "New Finantial Info"
 
     fill_in "Salary", with: @finantial_info.salary
-    fill_in "Salay extra", with: @finantial_info.salay_extra
+    fill_in "Salay extra", with: @finantial_info.salary_extra
     fill_in "User", with: @finantial_info.user_id
     fill_in "Visa type", with: @finantial_info.visa_type_id
     fill_in "Working time", with: @finantial_info.working_time
@@ -31,7 +31,7 @@ class FinantialInfosTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Salary", with: @finantial_info.salary
-    fill_in "Salay extra", with: @finantial_info.salay_extra
+    fill_in "Salay extra", with: @finantial_info.salary_extra
     fill_in "User", with: @finantial_info.user_id
     fill_in "Visa type", with: @finantial_info.visa_type_id
     fill_in "Working time", with: @finantial_info.working_time

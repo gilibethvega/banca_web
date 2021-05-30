@@ -32,18 +32,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :visibility %>
-    <%= form.text_field :visibility %>
+    <%= form.label :visibility, "¿Visible?" %>
+    <%= form.check_box :visibility %>
   </div>
 
   <div class="field">
     <%= form.label :institution_type_id %>
-    <%= form.text_field :institution_type_id %>
+    <%= form.select :institution_type_id, InstitutionType.all.collect {|type_product| [type_product.name, type_product.id]}, {} ,id: :product_institution_type_id, include_blank:false %>
   </div>
 
   <div class="field">
     <%= form.label :product_type_id %>
-    <%= form.text_field :product_type_id %>
+    <%= form.select :product_type_id, ProductType.all.collect {|type_product| [type_product.name, type_product.id]}, {} ,id: :product_product_type_id, include_blank:false %>
   </div>
 
   <div class="actions">

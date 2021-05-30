@@ -61,29 +61,21 @@ end
         description: Faker::Lorem.paragraph(sentence_count: 10, supplemental: true),
         image: Faker::LoremFlickr.image(size: "100x120"),
         url: Faker::Internet.domain_name,
+        visibility: true;
         product_type_id: Faker::Number.between(from: 1, to: 4),
         institution_type_id: Faker::Number.between(from: 1, to: 4)
     )
 end
 
-#friendlyType
 
-3.times do
-    FriendlyType.create(
-        name: Faker::Lorem.sentence(word_count: 2),
-        image: Faker::LoremFlickr.image(size: "50x60"),
-        user_id: Faker::Number.between(from: 1, to: 3)
-    )
-end
-
-#friendlyInfo
+#finantialInfo
 
 3.times do
     FinantialInfo.create(
         salary: rand(300000..1549000),
         salary_extra: rand(100000..154900),
         working_time: Faker::Number.between(from: 1, to: 24),
-        user_id: Faker::Number.between(from: 1, to: 3),
+        user_id: Faker::Number.unique.between(from: 1, to: 3),
         worker_type_id: Faker::Number.between(from: 1, to: 4),
         visa_type_id: Faker::Number.between(from: 1, to: 4) 
     )

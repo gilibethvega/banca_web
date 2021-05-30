@@ -1,3 +1,6 @@
 class InstitutionType < ApplicationRecord
-    has_many :products, dependent: :destroy
+    has_many :finantial_products, dependent: :destroy
+    def to_s
+        name
+    end
 end

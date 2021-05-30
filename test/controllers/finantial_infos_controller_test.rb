@@ -17,7 +17,7 @@ class FinantialInfosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create finantial_info" do
     assert_difference('FinantialInfo.count') do
-      post finantial_infos_url, params: { finantial_info: { salary: @finantial_info.salary, salay_extra: @finantial_info.salay_extra, user_id: @finantial_info.user_id, visa_type_id: @finantial_info.visa_type_id, working_time: @finantial_info.working_time, worker_type_id: @finantial_info.worker_type_id } }
+      post finantial_infos_url, params: { finantial_info: { salary: @finantial_info.salary, salary_extra: @finantial_info.salary_extra, user_id: @finantial_info.user_id, visa_type_id: @finantial_info.visa_type_id, working_time: @finantial_info.working_time, worker_type_id: @finantial_info.worker_type_id } }
     end
 
     assert_redirected_to finantial_info_url(FinantialInfo.last)
@@ -34,7 +34,7 @@ class FinantialInfosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update finantial_info" do
-    patch finantial_info_url(@finantial_info), params: { finantial_info: { salary: @finantial_info.salary, salay_extra: @finantial_info.salay_extra, user_id: @finantial_info.user_id, visa_type_id: @finantial_info.visa_type_id, working_time: @finantial_info.working_time, worker_type_id: @finantial_info.worker_type_id } }
+    patch finantial_info_url(@finantial_info), params: { finantial_info: { salary: @finantial_info.salary, salary_extra: @finantial_info.salary_extra, user_id: @finantial_info.user_id, visa_type_id: @finantial_info.visa_type_id, working_time: @finantial_info.working_time, worker_type_id: @finantial_info.worker_type_id } }
     assert_redirected_to finantial_info_url(@finantial_info)
   end
 
