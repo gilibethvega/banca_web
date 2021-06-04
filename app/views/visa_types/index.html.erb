@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
   <tbody>
     <% @visa_types.each do |visa_type| %>
       <tr>
+        <td><%= visa_type.name %></td>
         <td><%= link_to 'Show', visa_type %></td>
         <td><%= link_to 'Edit', edit_visa_type_path(visa_type) %></td>
         <td><%= link_to 'Destroy', visa_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -13,3 +13,75 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+    font-family: 'Acme', sans-serif;
+    font-family: 'Marvel', sans-serif;
+    font-size: 16px;
+    margin: 0px;
+  }
+  .bg-primary {
+    background-color: #344b7b!important;
+  }
+  .hero {
+    background-image: url('../img/bg_hero_bf.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .font-family-2 {
+    font-family: 'Acme', sans-serif;
+    -webkit-text-stroke: 1px black;
+    font-weight: 700;
+  }
+  .display-mobile {
+    font-size: 40px;
+  }
+  .border-top, .border-bottom {
+    border-width:3px !important;
+    margin: 0px auto;
+  }
+  h2 {
+    font-family: 'Acme', sans-serif;
+  }
+  #superpowers i{
+    color:  #344b7b;
+  }
+  #works {
+    background-color: #344b7b;
+  }
+  footer a{
+    color: #ffffff;
+  }
+  footer {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    padding-top: 10px;
+  }
+  @media (min-width: 768px) {
+    .w-25 {
+      width: 10%!important;
+    }
+    .w-50 {
+      width: 20%!important;
+    }
+    .display-mobile {
+      font-size: 60px;
+    }
+  }
+  @media (min-width: 576px) {
+    .hero {
+      background-image: none;
+      padding-top: 0px!important;
+    }
+  }
+  @media (max-width: 576px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+  
+  
