@@ -20,8 +20,15 @@
     font-size: 16px;
     margin: 0px;
   }
+  .content-bf {
+    min-height: 100vh;
+  }
   .bg-primary {
     background-color: #344b7b!important;
+  }
+  .btn-secondary {
+    background-color: #344b7b!important;
+    color: white;
   }
   .hero {
     background-image: url('../img/bg_hero_bf.jpg');
@@ -44,6 +51,13 @@
   h2 {
     font-family: 'Acme', sans-serif;
   }
+  .btn-primary{
+    background-color: #a2c037!important;
+    border-color: #344b7b!important;
+  }
+  .btn:not(:disabled):not(.disabled) {
+    color:white;
+  }
   #superpowers i{
     color:  #344b7b;
   }
@@ -52,14 +66,6 @@
   }
   footer a{
     color: #ffffff;
-  }
-  footer {
-    position: relative;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: 100px;
-    padding-top: 10px;
   }
   @media (min-width: 768px) {
     .w-25 {

@@ -1,27 +1,29 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center mx-auto pt-5">Product Types</h1>
 
-<h1>Product Types</h1>
+<%= link_to 'New Product Type', new_product_type_path, class:"btn btn-primary link-white mx-5 " %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @product_types.each do |product_type| %>
+<div class="table-responsive p-5">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= product_type.name %></td>
-        <td><%= link_to 'Show', product_type %></td>
-        <td><%= link_to 'Edit', edit_product_type_path(product_type) %></td>
-        <td><%= link_to 'Destroy', product_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @product_types.each do |product_type| %>
+        <tr>
+          <td><%= product_type.name %></td>
+          <td><%= link_to 'Show', product_type %></td>
+          <td><%= link_to 'Edit', edit_product_type_path(product_type) %></td>
+          <td><%= link_to 'Destroy', product_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Product Type', new_product_type_path %>
+<%= link_to 'Admin center', home_admin_path, class:"btn btn-secondary link-white mx-5" %>
+

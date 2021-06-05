@@ -9,8 +9,8 @@
 ## users
 User.create([
     {email: "admin@admin.com", password: "desafiolatam", password_confirmation: "desafiolatam", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, level: 0, admin: true, username: "gilivega"},
-    {email: "testuser@test.com", password: "desafiolatam2", password_confirmation: "desafiolatam2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, level: 0, admin:true, username: "testuser"},
-    {email: "testuser2@test.com", password: "desafiolatam3", password_confirmation: "desafiolatam3", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, level: 0, admin:true, username: "testuser2"}
+    {email: "testuser@test.com", password: "desafiolatam2", password_confirmation: "desafiolatam2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, level: 0, admin:false, username: "testuser"},
+    {email: "testuser2@test.com", password: "desafiolatam3", password_confirmation: "desafiolatam3", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, level: 0, admin:false, username: "testuser2"}
 ])
 
 ##

@@ -1,0 +1,25 @@
+<h1 class="text-center mx-auto pt-5">Users</h1>
+
+<div class="table-responsive p-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Level</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.level %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<%= link_to 'Admin center', home_admin_path, class:"btn btn-secondary link-white mx-5 " %>
