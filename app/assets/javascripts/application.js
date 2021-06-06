@@ -13,5 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require finantial_infos.js
 //= require turbolinks
 //= require_tree .

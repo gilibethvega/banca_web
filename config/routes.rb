@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :visa_types
   resources :finantial_products
   resources :finantial_infos
+  get 'finantial_infos/client'
   resources :institution_types
   resources :posts
   resources :worker_types

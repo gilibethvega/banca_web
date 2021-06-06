@@ -4,4 +4,5 @@ class FinantialInfo < ApplicationRecord
   belongs_to :worker_type
   validates :user_id, uniqueness: true
 
+
 end

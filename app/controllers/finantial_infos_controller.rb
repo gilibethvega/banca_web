@@ -1,13 +1,17 @@
 class FinantialInfosController < ApplicationController
   before_action :set_finantial_info, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :authorize_admin!, only: %i[ index ]
+  before_action :authorize_admin!, only: %i[ destroy]
   # GET /finantial_infos or /finantial_infos.json
   def index
-    @finantial_infos = FinantialInfo.all
-    @visa_types = VisaType.all
-    @worker_types = WorkerType.all
-    @users = User.all
+    if current_user.admin == true
+      @finantial_infos = FinantialInfo.all
+      @visa_types = VisaType.all
+      @worker_types = WorkerType.all
+      @users = User.all
+    else
+      @finantial_infos = FinantialInfo.all.where(user_id: current_user.id)
+    end
   end
 
   # GET /finantial_infos/1 or /finantial_infos/1.json
