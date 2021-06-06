@@ -33,6 +33,7 @@ class FinantialInfosController < ApplicationController
 
     respond_to do |format|
       if @finantial_info.save
+        current_user.update_attributes(level: 1)
         format.html { redirect_to @finantial_info, notice: "Finantial info was successfully created." }
         format.json { render :show, status: :created, location: @finantial_info }
       else
