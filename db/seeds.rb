@@ -70,12 +70,12 @@ end
 
 #finantialInfo
 
-3.times do
+1.times do
     FinantialInfo.create(
         salary: rand(300000..1549000),
         salary_extra: rand(100000..154900),
         working_time: Faker::Number.between(from: 1, to: 24),
-        user_id: Faker::Number.unique.between(from: 1, to: 3),
+        user_id: Faker::Number.unique.between(from: 2, to: 3),
         worker_type_id: Faker::Number.between(from: 1, to: 4),
         visa_type_id: Faker::Number.between(from: 1, to: 4) 
     )
