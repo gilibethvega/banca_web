@@ -1,6 +1,6 @@
 class FinantialInfosController < ApplicationController
   before_action :set_finantial_info, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[ create show edit update ]
+  before_action :authenticate_user!
   before_action :authorize_admin!, only: %i[ index ]
   # GET /finantial_infos or /finantial_infos.json
   def index

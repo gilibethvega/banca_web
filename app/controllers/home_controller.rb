@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authorize_admin!
+  before_action :authorize_admin!, only: %i[ admin users ]
   # GET /finantial_infos or /finantial_infos.json
   def index
     @users = User.all

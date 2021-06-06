@@ -1,7 +1,7 @@
 class FinantialProductsController < ApplicationController
   before_action :set_finantial_product, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :authorize_admin!, only: %i[ create show edit update destroy ]
+  before_action :authorize_admin!
   # GET /finantial_products or /finantial_products.json
   def index
     @finantial_products = FinantialProduct.all

@@ -30,7 +30,11 @@
               <a class="nav-link" href="#aboutme">Sobre mí</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/home/admin">Admin<span class="sr-only">(current)</span></a>
+              <% if current_user.admin === true %>
+                <a class="nav-link" href="/home/admin">Admin Center<span class="sr-only">(current)</span></a>
+                <% else %>
+                <a class="nav-link" href="/posts">Blog</a>
+              <% end %>
             </li>
             <div class="d-flex">
               <% if current_user %>
@@ -47,7 +51,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class="content-bf">
-    <%= yield %>
+      <%= yield %>
     </div>
     <footer class="container-fluid text-center p-5 text-white bg-primary mt-3">
       <%= image_tag 'banca-friendly-logo2.png', :width=> "132", :height=> "auto", :loading=> "lazy", class:"mx-auto font-weight-bold mr-md-5 d-md-inline align-middle" %>
