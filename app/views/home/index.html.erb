@@ -1,17 +1,43 @@
 <% if current_user %>
-    <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class:"btn btn-secondary" %>
+    <div class="font-weight-bold m-5 text-center">
+        <h2 class="font-weight-bold my-4 d-block">Tarjetas de Crédito</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 m-5">
+            <% @finantial_products.each do |finantial_products| %>
+                <% if finantial_products.visibility === true && finantial_products.product_type_id === 1 %>
+                    <div class="col">
+                        <div class="card h-100">
+                            <%= image_tag finantial_products.image, class:"d-block rounded mx-auto my-3", :width=> "200", :height=> "100"%>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= finantial_products.name %></h5>
+                                <p class="card-text text-justify"><%= finantial_products.description %></p>
+                                <p class="card-text text-center">Institución financiera: <%= finantial_products.institution_type %></p>
+                            </div>
+                            <div class="mx-auto mt-5 text-center">
+                                <% if finantial_products.liked?(current_user) %>
+                                    <%= button_to finantial_product_users_finantial_product_path(finantial_products), class:"btn-rt like-button" do %>
+                                    <i class="fas fa-heart"></i>
+                                    <% end %>
+                                <% else %>
+                                    <%= button_to finantial_product_users_finantial_product_path(finantial_products), class:"btn-like-light unlike-button" do %>
+                                    <i class="fas fa-heart"></i>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                <% else %> 
+                <% end %>
+            <% end %> 
+        </div>
+    </div>
 <% else %>
     <section id="aboutme" class="container text-center my-5 pt-5">
         <div class="d-flex row">
             <%= image_tag 'banca2.png', :width=> "300", :height=> "auto", :loading=> "lazy", class:"mx-auto col-md-6" %>
             <div class="my-5 col-md-6">
                 <h3 class="text-justify">Bienvenido Banca Friendly, la única plataforma de educación financiera especializada en migrantes en Chile</h3>
-                <br>
-                <br>
-                <h3 class="text-justify"> ¿Quieres hackear el sistema financiero y aprovechar sus beneficios? Registrate aquí para conocer más:</h3>
-                <br>
-                <br>
-                <%= link_to "Registrate", new_user_registration_path, class: "btn btn-secondary mx-2" %>
+                <h3 class="text-justify mt-5"> ¿Quieres hackear el sistema financiero y aprovechar sus beneficios? Registrate aquí para conocer más:</h3>
+                <%= link_to "Registrate", new_user_registration_path, class: "btn btn-secondary mx-2 mt-5 px-5" %>
                 <a href="#superpowers" class="text-muted text-center d-block mt-3">¿Cómo funciona?</a>
             </div>
 
@@ -25,19 +51,19 @@
         <div class="border-bottom border-dark w-25 mx-auto"></div>
         <div class="row my-4">
         <div class="col-md-4">
-            <button type="button" class="btn btn-link" data-container="body" data-toggle="popover" data-placement="top" data-content="La gema más poderosa de las finanzas"><i class="fas fa-dice-d20 fa-8x my-3"></i></button>
-            <h3 class="my-3">Economista</h3>
-            <p class="my-3">desde 2012</p>
+            <button type="button" class="btn btn-link" data-container="body" data-toggle="popover" data-placement="top" data-content="La gema más poderosa de las finanzas"><i class="fas fa-person-booth fa-8x my-3"></i></button>
+            <h3 class="my-3">1. Registrate</h3>
+            <p class="my-3">Crea tu usuario #bancafriendly con tu correo personal. Es un servicio gratuito y sin letras chicas 🧐</p>
         </div>
         <div class="col-md-4">
-            <button type="button" class="btn btn-link" data-container="body" data-toggle="popover" data-placement="top" data-content="Intentando salvar al mundo de Dicom"><i class="fas fa-khanda fa-8x my-3"></i></button>
-            <h3 class="my-3">Trainer financiera</h3>
-            <p class="my-3">desde 2018</p>
+            <button type="button" class="btn btn-link" data-container="body" data-toggle="popover" data-placement="top" data-content="Intentando salvar al mundo de Dicom"><i class="fas fa-skating fa-8x my-3"></i></button>
+            <h3 class="my-3">2. Ingresa y escoge</h3> 
+            <p class="my-3">Después de iniciar sesión podrás conocer todos productos financieros más #friendly en Chile</p>
         </div>
         <div class="col-md-4">
-            <button type="button" class="btn btn-link" data-container="body" data-toggle="popover" data-placement="top" data-content="Mutando a dev... 👽"><i class="fab fa-connectdevelop fa-8x my-3"></i></button>
-            <h3 class="my-3">PM & Developer Jr, Creditú</h3>
-            <p class="my-3">desde 2020</p>
+            <button type="button" class="btn btn-link" data-container="body" data-toggle="popover" data-placement="top" data-content="Conviertete en un superheroe financiero"><i class="fas fa-user-astronaut fa-8x my-3"></i></button>
+            <h3 class="my-3">3. Hazte pro</h3>
+            <p class="my-3">Si completas tu perfil financiero podrás acceder a mejores ofertas y productos especialmente diseñados para tí</p>
         </div>
         </div>
     </section>

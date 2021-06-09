@@ -9,6 +9,7 @@ class FinantialProductsController < ApplicationController
     @product_types = ProductType.all
   end
 
+
   # GET /finantial_products/1 or /finantial_products/1.json
   def show
   end
