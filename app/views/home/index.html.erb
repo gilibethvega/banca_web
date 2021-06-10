@@ -14,18 +14,19 @@
                             </div>
                             <div class="mx-auto mt-5 text-center">
                                 <% if finantial_products.liked?(current_user) %>
-                                    <%= button_to finantial_product_users_finantial_product_path(finantial_products), class:"btn-rt like-button" do %>
-                                    <i class="fas fa-heart"></i>
+                                    <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-rt like-button" do %>
+                                    <i class="fas fa-heart">Lo tengo</i>
                                     <% end %>
                                 <% else %>
-                                    <%= button_to finantial_product_users_finantial_product_path(finantial_products), class:"btn-like-light unlike-button" do %>
-                                    <i class="fas fa-heart"></i>
+                                    <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-like-light unlike-button" do %>
+                                    <i class="fas fa-heart"> No lo tengo! </i>
                                     <% end %>
                                 <% end %>
                             </div>
                         </div>
                     </div>
-                <% else %> 
+                <% else %>
+                
                 <% end %>
             <% end %> 
         </div>

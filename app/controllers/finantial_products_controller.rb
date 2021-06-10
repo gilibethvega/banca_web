@@ -1,12 +1,25 @@
 class FinantialProductsController < ApplicationController
-  before_action :set_finantial_product, only: %i[ show edit update destroy ]
+  before_action :set_finantial_product, only: %i[ show edit update destroy finantial_products_user ]
   before_action :authenticate_user!
-  before_action :authorize_admin!
+  before_action :authorize_admin!, only: %i[ index edit update destroy ]
   # GET /finantial_products or /finantial_products.json
   def index
     @finantial_products = FinantialProduct.all
     @institution_types = InstitutionType.all
     @product_types = ProductType.all
+  end
+
+  def finantial_products_user
+    if @finantial_product.liked?(current_user)
+      @finantial_product.remove_like(current_user)
+    else
+      @finantial_product.add_like(current_user)
+    end
+    if current_user.present?
+      redirect_to root_path
+    else
+      redirect_to root_path, alert: 'Error in your  action'
+    end
   end
 
 

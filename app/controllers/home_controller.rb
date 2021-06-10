@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @finantial_products = FinantialProduct.all
     @institution_types = InstitutionType.all
     @product_types = ProductType.all
-    @finantial_product_users = FinantialProductUser.all
+    @finantial_products_users = FinantialProductsUser.all
   end
   def finantial_product_user
     if @finantial_product.liked?(current_user)

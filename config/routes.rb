@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :product_types
   resources :visa_types
+  resources :finantial_products_users
+
   resources :finantial_products do
     member do
-      post :finantial_product_users
+      post :finantial_products_user
     end
   end
   resources :finantial_infos
