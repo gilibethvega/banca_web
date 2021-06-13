@@ -1,36 +1,83 @@
 <% if current_user %>
-    <div class="font-weight-bold m-5 text-center">
-        <h2 class="font-weight-bold my-4 d-block">Tarjetas de Crédito</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4 m-5">
-            <% @finantial_products.each do |finantial_products| %>
-                <% if finantial_products.visibility === true && finantial_products.product_type_id === 1 %>
-                    <div class="col">
-                        <div class="card h-100">
-                            <%= image_tag finantial_products.image, class:"d-block rounded mx-auto my-3", :width=> "200", :height=> "100"%>
-                            <div class="card-body">
-                                <h5 class="card-title"><%= finantial_products.name %></h5>
-                                <p class="card-text text-justify"><%= finantial_products.description %></p>
-                                <p class="card-text text-center">Institución financiera: <%= finantial_products.institution_type %></p>
-                            </div>
-                            <div class="mx-auto mt-5 text-center">
-                                <% if finantial_products.liked?(current_user) %>
-                                    <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-rt like-button" do %>
-                                    <i class="fas fa-heart">Lo tengo</i>
-                                    <% end %>
+    <section class="my-4 pt-5 pb-4" id="digitals-cards">
+        <h2 class="font-weight-bold my-4 text-center">Productos para tí!</h2>
+            <div class="container text-center my-3">
+                <div class="row mx-auto my-auto">
+                    <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+                        <div class="carousel-inner w-100" role="listbox">
+                            <% @finantial_products.each do |finantial_products| %>
+                                <% if @finantial_products.first() == finantial_products %>
+                                        <div class="carousel-item active">
+                                            <div class="col-md-4">
+                                                <div class="card text-gray h-100 font-weight-lighter">
+                                                    <span class="text-right m-3 text-muted"><%= finantial_products.product_type %></span>
+                                                    <%= image_tag finantial_products.image, class:"d-block rounded mx-auto my-1", :width=> "200", :height=> "100"%>
+                                                    <div class="card-body">
+                                                        <h3 class="card-title font-weight-lighter py-2 font-weight-bold text-center"><%= finantial_products.name %></h3>
+                                                        <p class="card-text my-2 bg-primary text-white mx-0">Institución financiera: <%= finantial_products.institution_type %></p>
+                                                        <p class="card-text d-inline my-1 text-justify"><%= finantial_products.description %></p>
+                                                    </div>
+                                                    <a href="<%= finantial_products.url%>" class="btn btn-success stretched-link my-2 mx-5 p-1">Consíguelo aquí</a>
+                                                    <div class="card-footer">
+                                                        <div class="mx-auto text-center">
+                                                            <% if finantial_products.liked?(current_user) %>
+                                                                <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-rt like-button  mb-2" do %>
+                                                                <i class="fas fa-toggle-on"></i> <a>   Lo tengo! </a>
+                                                                <% end %>
+                                                            <% else %>
+                                                                <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-like-light unlike-button mb-2" do %>
+                                                                <i class="fas fa-toggle-off"></i> <a>   No lo tengo! </a>
+                                                                <% end %>
+                                                            <% end %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <% else %>
-                                    <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-like-light unlike-button" do %>
-                                    <i class="fas fa-heart"> No lo tengo! </i>
-                                    <% end %>
+                                        <div class="carousel-item">
+                                            <div class="col-md-4">
+                                                <div class="card text-gray h-100 font-weight-lighter">
+                                                    <span class="text-right m-3 text-muted"><%= finantial_products.product_type %></span>
+                                                    <%= image_tag finantial_products.image, class:"d-block rounded mx-auto my-1", :width=> "200", :height=> "100"%>
+                                                    <div class="card-body">
+                                                        <h3 class="card-title font-weight-lighter py-2 font-weight-bold text-center"><%= finantial_products.name %></h3>
+                                                        <p class="card-text my-2 bg-primary text-white mx-0">Institución financiera: <%= finantial_products.institution_type %></p>
+                                                        <p class="card-text d-inline my-5 text-justify"><%= finantial_products.description %></p>
+                                                    </div>
+                                                    <a href="<%= finantial_products.url%>" class="btn btn-success stretched-link my-2 mx-5 p-1">Consíguelo aquí</a>
+                                                    <div class="card-footer">
+                                                        <div class="mx-auto text-center">
+                                                            <% if finantial_products.liked?(current_user) %>
+                                                                <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-rt like-button  mb-2" do %>
+                                                                <i class="fas fa-toggle-on"></i> <a>   Lo tengo! </a>
+                                                                <% end %>
+                                                            <% else %>
+                                                                <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-like-light unlike-button mb-2" do %>
+                                                                <i class="fas fa-toggle-off"></i> <a>   No lo tengo! </a>
+                                                                <% end %>
+                                                            <% end %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <% end %>
-                            </div>
+                            <% end %>
                         </div>
+                        <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                <% else %>
-                
-                <% end %>
-            <% end %> 
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 <% else %>
     <section id="aboutme" class="container text-center my-5 pt-5">
         <div class="d-flex row">
