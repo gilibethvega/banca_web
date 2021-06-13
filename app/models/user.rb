@@ -16,4 +16,5 @@ class User < ApplicationRecord
   def have_profiling?(user)
     users_profile.include? (user)
   end
+  
 end

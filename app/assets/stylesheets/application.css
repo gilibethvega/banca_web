@@ -20,6 +20,9 @@
     font-size: 16px;
     margin: 0px;
   }
+  .pro-color {
+    background-color: #FFFFE0;
+  }
   .content-bf {
     min-height: 100vh;
   }
@@ -75,6 +78,9 @@
   .button_to {
     display: inline;
     width: 20%;
+  }
+  .btn-success::after {
+    position: none!important;
   }
   .like-button, .btn-outline-light:hover, .btn-light:hover {
     color:#a2c037;

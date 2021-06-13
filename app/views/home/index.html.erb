@@ -1,12 +1,12 @@
 <% if current_user %>
-    <section class="my-4 pt-5 pb-4" id="digitals-cards">
-        <h2 class="font-weight-bold my-4 text-center">Productos para tí!</h2>
+    <section class="my-4 pt-4" id="normal-products">
+        <h2 class="font-weight-bold my-4 text-center">Productos #Friendly!</h2>
             <div class="container text-center my-3">
                 <div class="row mx-auto my-auto">
                     <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                         <div class="carousel-inner w-100" role="listbox">
                             <% @finantial_products.each do |finantial_products| %>
-                                <% if @finantial_products.first() == finantial_products %>
+                                <% if @finantial_products.first() == finantial_products && finantial_products.visibility == true %>
                                         <div class="carousel-item active">
                                             <div class="col-md-4">
                                                 <div class="card text-gray h-100 font-weight-lighter">
@@ -17,7 +17,7 @@
                                                         <p class="card-text my-2 bg-primary text-white mx-0">Institución financiera: <%= finantial_products.institution_type %></p>
                                                         <p class="card-text d-inline my-1 text-justify"><%= finantial_products.description %></p>
                                                     </div>
-                                                    <a href="<%= finantial_products.url%>" class="btn btn-success stretched-link my-2 mx-5 p-1">Consíguelo aquí</a>
+                                                    <a href=<%= finantial_products.url%> class="btn btn-success my-2 mx-5 p-1">Consíguelo aquí</a>
                                                     <div class="card-footer">
                                                         <div class="mx-auto text-center">
                                                             <% if finantial_products.liked?(current_user) %>
@@ -34,7 +34,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                <% else %>
+                                <% elsif @finantial_products.first() != finantial_products && finantial_products.visibility == true %>
                                         <div class="carousel-item">
                                             <div class="col-md-4">
                                                 <div class="card text-gray h-100 font-weight-lighter">
@@ -45,7 +45,7 @@
                                                         <p class="card-text my-2 bg-primary text-white mx-0">Institución financiera: <%= finantial_products.institution_type %></p>
                                                         <p class="card-text d-inline my-5 text-justify"><%= finantial_products.description %></p>
                                                     </div>
-                                                    <a href="<%= finantial_products.url%>" class="btn btn-success stretched-link my-2 mx-5 p-1">Consíguelo aquí</a>
+                                                    <a href=<%= finantial_products.url%> class="btn btn-success my-2 mx-5 p-1">Consíguelo aquí</a>
                                                     <div class="card-footer">
                                                         <div class="mx-auto text-center">
                                                             <% if finantial_products.liked?(current_user) %>
@@ -78,10 +78,101 @@
             </div>
         </div>
     </section>
+    <section id="pro-products" class="container text-center my-2">
+        <% if current_user.have_profiling?(current_user) && current_user.admin === false %>
+                <h2 class="font-weight-bold my-4 text-center">Productos #FriendlyPRO ⭐</h2>
+                    <div class="container text-center my-3">
+                        <div class="row mx-auto my-auto">
+                            <div id="recipeCarousel-2" class="carousel slide w-100" data-ride="carousel">
+                                <div class="carousel-inner w-100" role="listbox">
+                                    <% @finantial_products_pro.each do |finantial_products| %>
+                                        <% if @finantial_products_pro.first() == finantial_products %>
+                                                <div class="carousel-item-2 active">
+                                                    <div class="col-md-4">
+                                                        <div class="card text-gray h-100 font-weight-lighter pro-color pro-color">
+                                                            <span class="text-right m-3 text-muted"><%= finantial_products.product_type %></span>
+                                                            <%= image_tag finantial_products.image, class:"d-block rounded mx-auto my-1", :width=> "200", :height=> "100"%>
+                                                            <div class="card-body">
+                                                                <h3 class="card-title font-weight-lighter py-2 font-weight-bold text-center"><%= finantial_products.name %></h3>
+                                                                <p class="card-text my-2 bg-primary text-white mx-0">Institución financiera: <%= finantial_products.institution_type %></p>
+                                                                <p class="card-text d-inline my-1 text-justify"><%= finantial_products.description %></p>
+                                                            </div>
+                                                            <a href=<%= finantial_products.url%> class="btn btn-success my-2 mx-5 p-1">Consíguelo aquí</a>
+                                                            <div class="card-footer">
+                                                                <div class="mx-auto text-center">
+                                                                    <% if finantial_products.liked?(current_user) %>
+                                                                        <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-rt like-button  mb-2" do %>
+                                                                        <i class="fas fa-star"></i><a> Lo tengo! </a>
+                                                                        <% end %>
+                                                                    <% else %>
+                                                                        <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-like-light unlike-button mb-2" do %>
+                                                                        <i class="far fa-star"></i><a> No lo tengo! </a>
+                                                                        <% end %>
+                                                                    <% end %>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        <% elsif @finantial_products_pro.first() != finantial_products %>
+                                                <div class="carousel-item-2">
+                                                    <div class="col-md-4">
+                                                        <div class="card text-gray h-100 font-weight-lighter pro-color">
+                                                            <span class="text-right m-3 text-muted"><%= finantial_products.product_type %></span>
+                                                            <%= image_tag finantial_products.image, class:"d-block rounded mx-auto my-1", :width=> "200", :height=> "100"%>
+                                                            <div class="card-body">
+                                                                <h3 class="card-title font-weight-lighter py-2 font-weight-bold text-center"><%= finantial_products.name %></h3>
+                                                                <p class="card-text my-2 bg-primary text-white mx-0">Institución financiera: <%= finantial_products.institution_type %></p>
+                                                                <p class="card-text d-inline my-5 text-justify"><%= finantial_products.description %></p>
+                                                            </div>
+                                                            <a href=<%= finantial_products.url%> class="btn btn-success my-2 mx-5 p-1">Consíguelo aquí</a>
+                                                            <div class="card-footer">
+                                                                <div class="mx-auto text-center">
+                                                                    <% if finantial_products.liked?(current_user) %>
+                                                                        <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-rt like-button  mb-2" do %>
+                                                                        <i class="fas fa-star"></i><a> Lo tengo! </a>
+                                                                        <% end %>
+                                                                    <% else %>
+                                                                        <%= button_to finantial_products_user_finantial_product_path(finantial_products), class:"btn-like-light unlike-button mb-2" do %>
+                                                                        <i class="far fa-star"></i><a> No lo tengo! </a>
+                                                                        <% end %>
+                                                                    <% end %>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                                <a class="carousel-control-prev w-auto" href="#recipeCarousel-2" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next w-auto" href="#recipeCarousel-2" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <% else %>
+            <h2 class="font-weight-bold my-2">¿Quieres ver más productos? Hazte #FriendlyPro🦸🏻‍♀️</h2>
+            <div class="d-flex row">
+                <%= image_tag 'bancapro2.png', :width=> "100", :height=> "auto", :loading=> "lazy", class:"mx-auto col-md-4" %>
+                <div class="my-2 col-md-8">
+                    <h3 class="text-justify mt-5"> Completa tu perfil financiero y podrás solicitar productos y servicios financieros especialmente diseñados para tí.</h3>
+                    <%= link_to "Completar mi perfil", new_finantial_info_path, class: "btn btn-secondary mx-2 mt-5 px-5" %>
+                </div>
+            </div>
+        <% end %>  
+    </section>
+
 <% else %>
-    <section id="aboutme" class="container text-center my-5 pt-5">
-        <div class="d-flex row">
-            <%= image_tag 'banca2.png', :width=> "300", :height=> "auto", :loading=> "lazy", class:"mx-auto col-md-6" %>
+    <section id="aboutus" class="container text-center my-5 pt-5">
+        <div class="d-flex row my-3">
+            <%= image_tag 'banca2.png', :width=> "100", :height=> "auto", :loading=> "lazy", class:"mx-auto col-md-6" %>
             <div class="my-5 col-md-6">
                 <h3 class="text-justify">Bienvenido Banca Friendly, la única plataforma de educación financiera especializada en migrantes en Chile</h3>
                 <h3 class="text-justify mt-5"> ¿Quieres hackear el sistema financiero y aprovechar sus beneficios? Registrate aquí para conocer más:</h3>
