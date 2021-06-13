@@ -1,4 +1,6 @@
-<div id='form'>
+<div id='form'class="card-bancaweb">
+  <h2 class="my-4 mx-auto text-center">Hazte #FriendlyPro 👨🏻‍🚀👩🏼‍🚀✨</h2>
+  <p class="my-3 mx-auto text-justify">Completa tus datos y accede a mejores productos financieros. Tus datos son privados y no serán compartidos con terceros.</p>
   <%= form_with(model: finantial_info, remote: true) do |form| %>
     <% if finantial_info.errors.any? %>
       <div id="error_explanation">
@@ -13,32 +15,32 @@
     <% end %>
 
     <div class="field" id='salary'>
-      <%= form.label :salary %>
-      <%= form.text_field :salary %>
+      <%= form.label :salary, class:"form-label" %>
+      <%= form.text_field :salary, class:"form-control" %>
     </div>
 
     <div class="field" id='salary_extra'>
-      <%= form.label :salary_extra %>
-      <%= form.text_field :salary_extra %>
+      <%= form.label :salary_extra, class:"form-label" %>
+      <%= form.text_field :salary_extra, class:"form-control" %>
     </div>
 
     <div class="field" id='working_time'>
-      <%= form.label :working_time %>
-      <%= form.text_field :working_time %>
+      <%= form.label :working_time, class:"form-label" %>
+      <%= form.text_field :working_time, class:"form-control" %>
     </div>
 
     <div class="field" id='visa_type_id'>
-      <%= form.label :visa_type_id %>
+      <%= form.label :visa_type_id, class:"form-label" %>
       <%= form.select :visa_type_id, VisaType.all.collect {|type_visa| [type_visa.name, type_visa.id]}, {} ,id: :visa_visa_type_id, include_blank:false %>
     </div>
 
     <div class="field" id='worker_type_id'>
-      <%= form.label :worker_type_id %>
+      <%= form.label :worker_type_id, class:"form-label" %>
       <%= form.select :worker_type_id, WorkerType.all.collect {|type_worker| [type_worker.name, type_worker.id]}, {} ,id: :worker_worker_type_id, include_blank:false %>
     </div>
 
-    <div class="actions">
-      <%= form.submit %>
+    <div class="actions text-center">
+      <%= form.submit "Completar mi perfil", class:"btn btn-primary px-4 py-2" %>
     </div>
   <% end %>
 </div>

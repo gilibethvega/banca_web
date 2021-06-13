@@ -11,6 +11,7 @@ class FinantialInfosController < ApplicationController
       @users = User.all
     else
       @finantial_infos = FinantialInfo.all.where(user_id: current_user.id)
+      @finantial_products_users = FinantialProductsUser.all.where(user_id: current_user.id)
     end
   end
 

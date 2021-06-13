@@ -13,5 +13,8 @@ class FinantialProduct < ApplicationRecord
   def add_like(user)
     FinantialProductsUser.create(user: user, finantial_product:self)
   end
+  def to_s
+    name
+  end
 
 end

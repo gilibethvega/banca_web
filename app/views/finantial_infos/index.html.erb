@@ -1,5 +1,8 @@
-<h1 class="text-center mx-auto pt-5">Finantial Infos</h1>
-
+<% if current_user.admin === true %>
+  <h1 class="text-center mx-auto pt-5">Finantial Infos</h1>
+<% else %>
+  <h1 class="text-center mx-auto pt-5">Mi perfil financiero</h1>
+<% end %>
 <div class="table-responsive p-5">
   <table class="table table-striped">
     <thead>
@@ -36,5 +39,22 @@
 <br>
 <% if current_user.admin === true %>
     <%= link_to 'Admin center', home_admin_path, class:"btn btn-secondary link-white mx-5 " %>
-  <% else %>
+<% else %>
+  <div class="table-responsive p-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Mis productos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @finantial_products_users.each do |finantial_products_user| %>
+        <tr>
+          <td><%= finantial_products_user.finantial_product.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <% end %>

@@ -1,6 +1,7 @@
-$(function(){
+document.addEventListener('turbolinks:load', function(){
+  $(document).ready(function () {
 
-  $("#superpowers").click(function(event){
+  $("superpowers").click(function(event){
     if (this.hash !== "") {
       event.preventDefault();
 
@@ -14,15 +15,13 @@ $(function(){
     }
   });
 
-  $('[data-toggle="popover"]').popover();
-
 
   $('#recipeCarousel').carousel({
     interval: 10000
   })
   
   $('.carousel .carousel-item').each(function(){
-      var minPerSlide = 3;
+      var minPerSlide = 20;
       var next = $(this).next();
       if (!next.length) {
       next = $(this).siblings(':first');
@@ -61,4 +60,5 @@ $(function(){
         }
   });
   
+});
 });
