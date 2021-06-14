@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_223234) do
+ActiveRecord::Schema.define(version: 2021_06_10_142925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,18 +43,9 @@ ActiveRecord::Schema.define(version: 2021_05_27_223234) do
     t.index ["product_type_id"], name: "index_finantial_products_on_product_type_id"
   end
 
-  create_table "finantial_products_users", id: false, force: :cascade do |t|
+  create_table "finantial_products_users", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "finantial_product_id", null: false
-  end
-
-  create_table "friendly_types", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_friendly_types_on_user_id"
   end
 
   create_table "institution_types", force: :cascade do |t|
@@ -113,6 +104,5 @@ ActiveRecord::Schema.define(version: 2021_05_27_223234) do
   add_foreign_key "finantial_infos", "worker_types"
   add_foreign_key "finantial_products", "institution_types"
   add_foreign_key "finantial_products", "product_types"
-  add_foreign_key "friendly_types", "users"
   add_foreign_key "posts", "product_types"
 end

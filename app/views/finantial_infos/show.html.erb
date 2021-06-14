@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @finantial_info.salary %>
+</p>
+
+<p>
+  <strong>Salay extra:</strong>
+  <%= @finantial_info.salary_extra %>
+</p>
+
+<p>
+  <strong>Working time:</strong>
+  <%= @finantial_info.working_time %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @finantial_info.user.email %>
+</p>
+
+<p>
+  <strong>Visa type:</strong>
+  <%= @finantial_info.visa_type %>
+</p>
+
+<p>
+  <strong>Worker type:</strong>
+  <%= @finantial_info.worker_type %>
+</p>
+
+<%= link_to 'Edit', edit_finantial_info_path(@finantial_info) %> |
+<%= link_to 'Back', finantial_infos_path %>

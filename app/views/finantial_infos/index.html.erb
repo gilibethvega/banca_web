@@ -1,0 +1,60 @@
+<% if current_user.admin === true %>
+  <h1 class="text-center mx-auto pt-5">Finantial Infos</h1>
+<% else %>
+  <h1 class="text-center mx-auto pt-5">Mi perfil financiero</h1>
+<% end %>
+<div class="table-responsive p-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Salary</th>
+        <th>Salay extra</th>
+        <th>Working time</th>
+        <th>User</th>
+        <th>Visa type</th>
+        <th>Worker type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @finantial_infos.each do |finantial_info| %>
+        <tr>
+          <td><%= finantial_info.salary %></td>
+          <td><%= finantial_info.salary_extra %></td>
+          <td><%= finantial_info.working_time %></td>
+          <td><%= finantial_info.user.email %></td>
+          <td><%= finantial_info.visa_type %></td>
+          <td><%= finantial_info.worker_type %></td>
+          <% if current_user.admin === true %>
+            <td><%= link_to 'Show', finantial_info %></td>
+            <% else %>
+            <td><%= link_to 'Edit', edit_finantial_info_path(finantial_info) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<% if current_user.admin === true %>
+    <%= link_to 'Admin center', home_admin_path, class:"btn btn-secondary link-white mx-5 " %>
+<% else %>
+  <div class="table-responsive p-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Mis productos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @finantial_products_users.each do |finantial_products_user| %>
+        <tr>
+          <td><%= finantial_products_user.finantial_product.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% end %>

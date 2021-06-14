@@ -1,0 +1,52 @@
+<%= form_with(model: finantial_product, local: true) do |form| %>
+  <% if finantial_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(finantial_product.errors.count, "error") %> prohibited this finantial_product from being saved:</h2>
+
+      <ul>
+      <% finantial_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :visibility, "¿Visible?" %>
+    <%= form.check_box :visibility %>
+  </div>
+
+  <div class="field">
+    <%= form.label :institution_type_id %>
+    <%= form.select :institution_type_id, InstitutionType.all.collect {|type_product| [type_product.name, type_product.id]}, {} ,id: :product_institution_type_id, include_blank:false %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_type_id %>
+    <%= form.select :product_type_id, ProductType.all.collect {|type_product| [type_product.name, type_product.id]}, {} ,id: :product_product_type_id, include_blank:false %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

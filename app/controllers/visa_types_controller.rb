@@ -1,5 +1,7 @@
 class VisaTypesController < ApplicationController
   before_action :set_visa_type, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :authorize_admin!
 
   # GET /visa_types or /visa_types.json
   def index

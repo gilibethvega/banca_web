@@ -1,0 +1,30 @@
+<h1 class="text-center mx-auto pt-5">Worker Types</h1>
+
+<%= link_to 'New Worker Type', new_worker_type_path, class:"btn btn-primary link-white mx-5 " %>
+
+<div class="table-responsive p-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @worker_types.each do |worker_type| %>
+        <tr>
+          <td><%= worker_type.name %></td>
+          <td><%= link_to 'Show', worker_type %></td>
+          <td><%= link_to 'Edit', edit_worker_type_path(worker_type) %></td>
+          <td><%= link_to 'Destroy', worker_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<br>
+
+<%= link_to 'Admin center', home_admin_path, class:"btn btn-secondary link-white mx-5 " %>
