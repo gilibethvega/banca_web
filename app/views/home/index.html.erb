@@ -157,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-        <% else %>
+        <% elsif (current_user.admin === false) %>
             <h2 class="font-weight-bold my-2">¿Quieres ver más productos? Hazte #FriendlyPro🦸🏻‍♀️</h2>
             <div class="d-flex row">
                 <%= image_tag 'bancapro2.png', :width=> "100", :height=> "auto", :loading=> "lazy", class:"mx-auto col-md-4" %>
