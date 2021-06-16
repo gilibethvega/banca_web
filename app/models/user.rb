@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one :finantial_info
   has_many :finantial_products, through: :finantial_products_users
-  has_many :finantial_products_user, dependent: :destroy
+  has_many :finantial_products_users, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
