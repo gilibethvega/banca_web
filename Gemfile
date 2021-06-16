@@ -68,3 +68,5 @@ gem 'faker'
 gem 'jquery-rails'
 #variables de entorno
 gem 'dotenv-rails'
+
+gem 'sparkpost_rails'

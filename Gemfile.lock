@@ -175,6 +175,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sparkpost_rails (1.5.5)
+      rails (>= 4.0, < 6.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -229,6 +231,7 @@ DEPENDENCIES
   rails (~> 5.2.1)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sparkpost_rails
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

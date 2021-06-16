@@ -31,7 +31,7 @@ class FinantialInfosController < ApplicationController
   # POST /finantial_infos or /finantial_infos.json
   def create
     @finantial_info = FinantialInfo.new(finantial_info_params.merge(user: current_user))
-
+    MyMailer.my_first_email(current_user).deliver
     respond_to do |format|
       if @finantial_info.save
         current_user.update_attributes(level: 1)
