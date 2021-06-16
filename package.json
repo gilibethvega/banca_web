@@ -1,6 +1,9 @@
 {
   "name": "bancaweb",
   "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "highcharts": "^9.1.1",
     "jquery": "^3.6.0",
