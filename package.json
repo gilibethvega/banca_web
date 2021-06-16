@@ -3,29 +3,6 @@
   "private": true,
   "dependencies": {
     "highcharts": "^9.1.1",
-    "jquery": "^3.6.0",
-    "node": "^10.x"
-  },
-  "description": "Historias de usuario pueden consultarse en",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gilibethvega/banca_web.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gilibethvega/banca_web/issues"
-  },
-  "homepage": "https://github.com/gilibethvega/banca_web#readme"
+    "jquery": "^3.6.0"
+  }
 }
