@@ -3,10 +3,6 @@
   "private": true,
   "dependencies": {
     "highcharts": "^9.1.1",
-    "jquery": "^3.6.0",
-    "node": "10.24.1"
-  },
-  "scripts": {
-    "start": "node index.js"
+    "jquery": "^3.6.0"
   }
 }
