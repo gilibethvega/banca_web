@@ -12,10 +12,6 @@ class FinantialInfosController < ApplicationController
     else
       @finantial_infos = FinantialInfo.all.where(user_id: current_user.id)
       @finantial_products_users = FinantialProductsUser.all.where(user_id: current_user.id)
-      @finantial_products_for_everyone = FinantialProduct.all
-      @product_types = ProductType.all
-      @finantial_products_for_name = @finantial_products_for_everyone.joins(:finantial_products_users).group(:name).count
-      @finantial_products_for_type = @product_types.joins(:finantial_products).group(:name).count
     end
   end
 
@@ -35,7 +31,6 @@ class FinantialInfosController < ApplicationController
   # POST /finantial_infos or /finantial_infos.json
   def create
     @finantial_info = FinantialInfo.new(finantial_info_params.merge(user: current_user))
-    #enviar correo si cliente completo perfil financiero
     MyMailer.my_first_email(current_user).deliver
     respond_to do |format|
       if @finantial_info.save

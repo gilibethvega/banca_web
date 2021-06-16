@@ -9,7 +9,6 @@ class HomeController < ApplicationController
     @product_types = ProductType.all
     @finantial_products_users = FinantialProductsUser.all
     @finantial_products_pro = FinantialProduct.filter_by_pro(false)
-    @finantial_products_users = FinantialProductsUser.all
   end
   def finantial_product_user
     if @finantial_product.liked?(current_user)

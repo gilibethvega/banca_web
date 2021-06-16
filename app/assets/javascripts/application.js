@@ -13,8 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-//= require chartkick
-//= require highcharts
 //= require finantial_infos.js
 //= require home.js
 //= require turbolinks
