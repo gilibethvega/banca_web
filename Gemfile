@@ -64,9 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 #faker
 gem 'faker'
-#jquery
 gem 'jquery-rails'
-#variables de entorno
-gem 'dotenv-rails'
-
-gem 'sparkpost_rails'
