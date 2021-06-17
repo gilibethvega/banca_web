@@ -10,7 +10,7 @@ Banca Friendly
 
 
 
-Nuestro proyecto que puede visitarse en bancafriendly.cl, esta ennfocado en ofrecer productos financieros a clientes según su perfil financiero. 
+Nuestro proyecto que puede visitarse en https://safe-ridge-83589.herokuapp.com/ o https://bancafriendly.cl, esta ennfocado en ofrecer productos financieros a clientes según su perfil financiero. 
 
 Comenzando 🚀
 
