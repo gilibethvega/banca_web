@@ -31,12 +31,12 @@ Abriendo el proyecto en su pc 🔧
 
 - Ir a https://github.com/gilibethvega/banca_web
 - En rama master, copiar código SSH
-- Ir a terminal, posicionarse en carpeta donde queremos copiar el proyecto. Escribir *git clone + codigo SSH-copiado en paso anterior
+- Ir a terminal, posicionarse en carpeta donde queremos copiar el proyecto. Escribir *git clone + codigo SSH-copiado en paso anterior*
 - Ingresar cd bancaweb/
 - Escribir code . y presionar enter.
 - Se abrirá el proyecto en su vscode o editor de texto favorito.
 - Deberá correr el comando *rail db:migrate*
-- Posterior a que se corran las migraciones deberá ingresar *rails db:seed
+- Posterior a que se corran las migraciones deberá ingresar *rails db:seed*
 - Correr *rails s* y al visitar http://localhost:3000/ podrá ver el proyecto en desarrollo
 
 
@@ -48,8 +48,8 @@ Para el despliegue se recomienda lo siguiente:
 - Commitear cambios y despues hacer push a la rama.
 - Ingresar *git checkout master* y luego merguear la rama con *git merge nombre-nueva-rama*
 - Una vez situados en master correr el servidor y verificar nuevamente que ningún servicio se haya visto afectado.
-- Debe cofigurarse la variable de entorno para envío de mail con *heroku config:set Sparkpost_API_KEY='escribe-tu-API-KEY' 
-- Posteriormente hacer un *git push origin master*.(Esto debería ser suficiente para desplegar en producción ya que heroku esta integrado con github, no obstante por problemas técnicos esta conexión esta suspendida, por lo que se requiere un *git push heroku master. 
+- Debe cofigurarse la variable de entorno para envío de mail con *heroku config:set Sparkpost_API_KEY='escribe-tu-API-KEY'*
+- Posteriormente hacer un *git push origin master*.(Esto debería ser suficiente para desplegar en producción ya que heroku esta integrado con github, no obstante por problemas técnicos esta conexión esta suspendida, por lo que se requiere un *git push heroku master.* 
 
 Construido con las siguientes gemas 🛠
 
