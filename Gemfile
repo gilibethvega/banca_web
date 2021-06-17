@@ -73,3 +73,5 @@ gem 'sparkpost_rails'
 #graficos
 gem'chartkick'
 gem 'groupdate'
+#errores
+gem 'rollbar'
