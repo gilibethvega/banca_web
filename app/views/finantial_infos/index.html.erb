@@ -44,7 +44,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Mis productos</th>
+        <th>Mis productos contratados</th>
       </tr>
     </thead>
     <tbody>
@@ -57,4 +57,15 @@
   </table>
 </div>
 
+<div class='text-center mx-auto pt-3'>
+  <h2>Los productos favoritos nuestra comunidad: </h2>
+  <%= pie_chart @finantial_products_for_name %>
+</div>
+
+<div class='text-center mx-auto pt-3'>
+  <h2>Nuestra oferta disponible por tipo de producto: </h2>
+  <%= pie_chart @finantial_products_for_type %>
+</div>
+
 <% end %>
+

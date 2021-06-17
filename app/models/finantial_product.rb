@@ -2,10 +2,12 @@ class FinantialProduct < ApplicationRecord
   belongs_to :institution_type
   belongs_to :product_type
   has_many :users, through: :finantial_products_users
-  has_many :finantial_products_user, dependent: :destroy
+  has_many :finantial_products_users, dependent: :destroy
+  accepts_nested_attributes_for :finantial_products_users
+  accepts_nested_attributes_for :users
   scope :filter_by_pro, -> (visibility) { where visibility: visibility }
   def liked?(user)
-    !!self.finantial_products_user.find{|finantial_products_user| finantial_products_user.user_id == user.id}
+    !!self.finantial_products_users.find{|finantial_products_user| finantial_products_user.user_id == user.id}
   end
   def remove_like(user)
     FinantialProductsUser.where(user: user, finantial_product:self).first.destroy
