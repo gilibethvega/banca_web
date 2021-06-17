@@ -6,7 +6,8 @@ https://trello.com/b/ItXluoIG/bancafriendlyweb
 
 Banca Friendly
 
-![banca2](https://user-images.githubusercontent.com/70213375/122314655-97d43980-cee6-11eb-9b0c-925db6dea8f0.png)
+![bancapro2](https://user-images.githubusercontent.com/70213375/122314747-c520e780-cee6-11eb-8820-5a248eb2eb25.png)
+
 
 
 Nuestro proyecto que puede visitarse en bancafriendly.cl, esta ennfocado en ofrecer productos financieros a clientes según su perfil financiero. 
